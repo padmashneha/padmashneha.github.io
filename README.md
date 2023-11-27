@@ -31,9 +31,3 @@ Welcome to my personal portfolio repository! This project is dedicated to showca
 
 Connect with me! I'm always open to new opportunities and collaborations.
 
-## Usage
-
-If you would like to use this portfolio template for your own projects, feel free to fork or clone this repository. Customize the content, add your projects, and make it your own. Don't forget to give credit if you found this template helpful!
-
-
-Feel free to replace the placeholders such as `[Your Name]`, `[Your Profession/Field]`, etc., with your actual information. Additionally, replace the placeholder links with the appropriate URLs for your projects, images, and profiles.
