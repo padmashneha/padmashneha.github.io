@@ -284,6 +284,10 @@
 			-ms-transition: none;
 			transition: none;
 		}
+.container{
+    width: 90vw;
+    margin: 0 auto;
+}
 
 	.banner.onscroll-image-fade-up.is-inactive .image {
 		-moz-transform: none;
