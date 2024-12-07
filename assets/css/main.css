@@ -157,7 +157,8 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: 'Myfont-Regular';
+  		src: url(./Myfont-Regular.woff) format('woff');
 		font-size: 1rem;
 		font-weight: 300;
 		line-height: 1.65;
