@@ -1,15 +1,12 @@
 import { about } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
+import { SectionEyebrow } from "./SectionEyebrow";
 
 export function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
-      <Reveal>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
-          About
-        </p>
-      </Reveal>
+      <SectionEyebrow index="02" label="About" />
       <Reveal delay={0.05}>
         <BentoCard className="bg-surface">
           <div className="space-y-5">

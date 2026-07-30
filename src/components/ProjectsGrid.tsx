@@ -3,15 +3,12 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
+import { SectionEyebrow } from "./SectionEyebrow";
 
 export function ProjectsGrid() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
-      <Reveal>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
-          Selected work
-        </p>
-      </Reveal>
+      <SectionEyebrow index="01" label="Case Studies" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
         {projects.map((project, i) => (
           <Reveal key={project.slug} delay={i * 0.08}>
@@ -21,7 +18,7 @@ export function ProjectsGrid() {
                 className="flex h-full flex-col justify-between bg-surface"
               >
                 <div>
-                  <span className="inline-block rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-accent-2">
+                  <span className="inline-block rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-ink">
                     {project.metric}
                   </span>
                   <h3 className="font-display mt-4 text-xl font-semibold leading-snug text-foreground">

@@ -1,15 +1,10 @@
 import Link from "next/link";
 import { ArrowUpRight, Download } from "lucide-react";
-import { profile, skills } from "@/content/data";
+import { highlights, profile, skills } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
-  const initials = profile.name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
-
   return (
     <section className="mx-auto max-w-6xl px-6 pt-14 pb-8 sm:pt-20">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-6 sm:gap-5">
@@ -17,8 +12,8 @@ export function Hero() {
           <BentoCard className="flex h-full flex-col justify-between bg-surface">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-border-c bg-surface-2 px-3 py-1 text-xs font-medium text-muted">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
-                Open to Product &amp; Data-focused roles
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-strong" />
+                Open to Product &amp; Data-focused roles · {profile.location}
               </span>
               <h1 className="font-display mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 {profile.name}
@@ -33,10 +28,10 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/#projects"
-                className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-105"
+                className="inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground transition-transform hover:scale-105"
               >
                 View projects
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={16} className="text-accent-strong" />
               </Link>
               <a
                 href={profile.resumeFile}
@@ -51,17 +46,21 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.08} className="sm:col-span-2">
-          <BentoCard className="flex h-full flex-col items-center justify-center gap-4 bg-accent text-center text-white">
-            <div className="font-display flex h-20 w-20 items-center justify-center rounded-2xl bg-white/15 text-2xl font-semibold ring-1 ring-white/20">
-              {initials}
-            </div>
-            <div>
-              <p className="text-sm font-medium text-white/80">
-                {profile.location}
-              </p>
-              <p className="mt-1 text-sm text-white/70">
-                Analytics · GenAI · ML
-              </p>
+          <BentoCard className="flex h-full flex-col justify-center gap-5 bg-ink text-ink-foreground">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+              Snapshot
+            </p>
+            <div className="flex flex-col gap-4">
+              {highlights.map((item) => (
+                <div key={item.label} className="flex items-baseline gap-3">
+                  <span className="font-display shrink-0 text-2xl font-semibold text-accent-strong">
+                    {item.value}
+                  </span>
+                  <span className="text-sm leading-snug text-ink-muted">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </BentoCard>
         </Reveal>

@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_LINKS = [
-  { href: "/#about", label: "About" },
   { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
   { href: "/#experience", label: "Experience" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -34,7 +34,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/#contact"
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 sm:inline-block"
+            className="hidden rounded-full bg-accent-strong px-4 py-2 text-sm font-semibold text-ink transition-transform hover:scale-105 sm:inline-block"
           >
             Let&apos;s talk
           </Link>

@@ -2,15 +2,12 @@ import { Award, BadgeCheck } from "lucide-react";
 import { awards, certifications, experience } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
+import { SectionEyebrow } from "./SectionEyebrow";
 
 export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
-      <Reveal>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
-          Experience
-        </p>
-      </Reveal>
+      <SectionEyebrow index="03" label="Experience" />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:gap-5">
         <Reveal className="sm:col-span-3">
@@ -52,7 +49,7 @@ export function Experience() {
         <div className="flex flex-col gap-4 sm:col-span-2 sm:gap-5">
           <Reveal delay={0.08}>
             <BentoCard className="bg-surface-2">
-              <div className="mb-4 flex items-center gap-2 text-accent-2">
+              <div className="mb-4 flex items-center gap-2 text-accent">
                 <BadgeCheck size={18} />
                 <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-foreground">
                   Certifications
@@ -69,8 +66,8 @@ export function Experience() {
           </Reveal>
 
           <Reveal delay={0.14}>
-            <BentoCard className="bg-accent text-white">
-              <div className="mb-4 flex items-center gap-2">
+            <BentoCard className="bg-ink text-ink-foreground">
+              <div className="mb-4 flex items-center gap-2 text-accent-strong">
                 <Award size={18} />
                 <h3 className="font-display text-sm font-semibold uppercase tracking-wide">
                   Awards
@@ -78,7 +75,7 @@ export function Experience() {
               </div>
               <ul className="space-y-2.5">
                 {awards.map((award) => (
-                  <li key={award} className="text-sm leading-snug text-white/90">
+                  <li key={award} className="text-sm leading-snug text-ink-muted">
                     {award}
                   </li>
                 ))}

@@ -61,7 +61,7 @@ export default async function ProjectPage({
 
       <Reveal delay={0.05}>
         <div className="mt-6">
-          <span className="inline-block rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-accent-2">
+          <span className="inline-block rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-ink">
             {project.metric}
           </span>
           <h1 className="font-display mt-4 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
@@ -109,9 +109,10 @@ export default async function ProjectPage({
       <Reveal delay={0.35} className="mt-8">
         <Link
           href="/#contact"
-          className="flex items-center justify-center rounded-3xl bg-accent px-6 py-5 text-sm font-semibold text-white transition-transform hover:scale-[1.01]"
+          className="flex items-center justify-center rounded-3xl bg-ink px-6 py-5 text-sm font-semibold text-ink-foreground transition-transform hover:scale-[1.01]"
         >
-          Have a similar problem? Let&apos;s talk.
+          Have a similar problem?{" "}
+          <span className="ml-1 text-accent-strong">Let&apos;s talk.</span>
         </Link>
       </Reveal>
     </div>

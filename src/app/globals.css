@@ -3,27 +3,36 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #faf8f4;
+  --background: #faf8f2;
   --surface: #ffffff;
-  --surface-2: #f1ece2;
-  --border-c: #e6dfd0;
-  --foreground: #191713;
+  --surface-2: #f2ede0;
+  --border-c: #e6ddc8;
+  --foreground: #17140f;
   --muted: #6b6255;
-  --accent: #b5562e;
-  --accent-2: #22403a;
-  --ring: #b5562e;
+
+  /* mustard — tuned darker for AA contrast as small text/links on light bg */
+  --accent: #8a660c;
+  /* mustard — tuned brighter, for solid fills paired with ink text */
+  --accent-strong: #e0ac1f;
+  --ring: #a97a0f;
+
+  /* fixed dark "spotlight" tokens — same in both themes, used for signature panels */
+  --ink: #1b1712;
+  --ink-foreground: #f6f1e2;
+  --ink-muted: #b6ab94;
 }
 
 .dark {
-  --background: #0b0c0e;
-  --surface: #16181b;
-  --surface-2: #1d2023;
-  --border-c: #2a2d31;
-  --foreground: #f3f0ea;
-  --muted: #a29c8f;
-  --accent: #e0824f;
-  --accent-2: #6fa89a;
-  --ring: #e0824f;
+  --background: #0c0b09;
+  --surface: #17150f;
+  --surface-2: #1e1b14;
+  --border-c: #2c2820;
+  --foreground: #f3efe4;
+  --muted: #a8a08c;
+
+  --accent: #e8b53a;
+  --accent-strong: #f0c14b;
+  --ring: #e8b53a;
 }
 
 @theme inline {
@@ -34,8 +43,11 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
+  --color-accent-strong: var(--accent-strong);
   --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
 }
@@ -44,11 +56,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background-image: radial-gradient(
+    var(--border-c) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  background-attachment: fixed;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-strong);
+  color: var(--ink);
 }
 
 * {

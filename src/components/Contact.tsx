@@ -2,6 +2,7 @@ import { ArrowUpRight, Download, Link as LinkIcon, Mail, Newspaper } from "lucid
 import { profile } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
+import { SectionEyebrow } from "./SectionEyebrow";
 
 const LINKS = [
   {
@@ -27,18 +28,15 @@ const LINKS = [
 export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
-      <Reveal>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
-          Contact
-        </p>
-      </Reveal>
+      <SectionEyebrow index="04" label="Contact" />
 
       <Reveal delay={0.05}>
-        <BentoCard className="bg-accent text-white">
+        <BentoCard className="bg-ink text-ink-foreground">
           <h2 className="font-display max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
-            Let&apos;s turn your data into a decision.
+            Let&apos;s turn your data into a{" "}
+            <span className="text-accent-strong">decision.</span>
           </h2>
-          <p className="mt-3 max-w-lg text-white/85">
+          <p className="mt-3 max-w-lg text-ink-muted">
             Open to product and data-focused roles, collaborations, and
             conversations about analytics, GenAI, and applied ML.
           </p>
@@ -56,7 +54,7 @@ export function Contact() {
             >
               <BentoCard className="flex h-full flex-col justify-between bg-surface">
                 <div className="flex items-center justify-between">
-                  <link.icon size={20} className="text-accent-2" />
+                  <link.icon size={20} className="text-accent" />
                   <ArrowUpRight
                     size={16}
                     className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
