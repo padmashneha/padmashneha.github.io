@@ -21,7 +21,7 @@ const siteUrl = "https://padmashneha.github.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.name} — ${profile.title}`,
+  title: "Padma's Portfolio",
   description: profile.tagline,
   icons: {
     icon: "/favicon.svg",
