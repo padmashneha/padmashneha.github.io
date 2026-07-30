@@ -27,7 +27,7 @@ export const skills = ["Python", "SQL", "Tableau", "Claude Code"];
 
 // Headline numbers pulled from the projects/experience below — shown in the Hero snapshot panel.
 export const highlights = [
-  { value: "$4", label: "Years of Experience" },
+  { value: "4", label: "Years of Experience" },
   { value: "3", label: "End-to-end case studies" },
   { value: "4", label: "Cloud & data certifications" },
 ];
