@@ -3,10 +3,10 @@
 
 export const profile = {
   name: "Padma Shneha",
-  title: "Data Scientist",
+  title: "Data Analyst",
   tagline: "Turning numbers to answers to grow your business",
   email: "padmashneha7@gmail.com",
-  location: "Chennai, India",
+  // location: "Chennai, India",
   links: {
     linkedin: "http://linkedin.com/in/padmashneha",
     medium:
@@ -27,7 +27,7 @@ export const skills = ["Python", "SQL", "Tableau", "Claude Code"];
 
 // Headline numbers pulled from the projects/experience below — shown in the Hero snapshot panel.
 export const highlights = [
-  { value: "$1.36M", label: "Revenue insights surfaced" },
+  { value: "$4", label: "Years of Experience" },
   { value: "3", label: "End-to-end case studies" },
   { value: "4", label: "Cloud & data certifications" },
 ];
