@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BackgroundDecor } from "@/components/BackgroundDecor";
 import { profile } from "@/content/data";
 
 const sans = Inter({
@@ -11,8 +12,8 @@ const sans = Inter({
   subsets: ["latin"],
 });
 
-const display = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const display = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -62,6 +63,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col font-sans">
         <Providers>
+          <BackgroundDecor />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

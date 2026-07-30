@@ -48,11 +48,11 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-12 sm:py-16">
+    <div className="mx-auto max-w-4xl px-6 py-10 sm:py-14">
       <Reveal>
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
+          className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-page-fg/70 transition-colors hover:text-page-fg"
         >
           <ArrowLeft size={15} />
           Back to projects
@@ -61,24 +61,24 @@ export default async function ProjectPage({
 
       <Reveal delay={0.05}>
         <div className="mt-6">
-          <span className="inline-block rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-ink">
+          <span className="nb-sm inline-block rounded-full bg-mustard px-3 py-1 font-display text-xs font-bold text-ink">
             {project.metric}
           </span>
-          <h1 className="font-display mt-4 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+          <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-page-fg sm:text-4xl">
             {project.title}
           </h1>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-page-fg/70 sm:text-lg">
             {project.summary}
           </p>
         </div>
       </Reveal>
 
       <Reveal delay={0.1}>
-        <BentoCard className="mt-8 bg-surface-2">
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+        <BentoCard hover={false} className="mt-8 bg-paper-2">
+          <p className="font-display text-xs font-bold uppercase tracking-widest text-muted">
             Tools used
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">
+          <p className="mt-2 text-sm leading-relaxed text-ink">
             {project.tools}
           </p>
         </BentoCard>
@@ -88,7 +88,7 @@ export default async function ProjectPage({
         {SECTIONS.map((section, i) => (
           <Reveal key={section.key} delay={0.12 + i * 0.06}>
             <BentoCard className="bg-surface">
-              <h2 className="font-display text-lg font-semibold text-foreground">
+              <h2 className="font-display text-lg font-bold text-ink">
                 {section.label}
               </h2>
               <div className="mt-3 space-y-4">
@@ -109,10 +109,10 @@ export default async function ProjectPage({
       <Reveal delay={0.35} className="mt-8">
         <Link
           href="/#contact"
-          className="flex items-center justify-center rounded-3xl bg-ink px-6 py-5 text-sm font-semibold text-ink-foreground transition-transform hover:scale-[1.01]"
+          className="nb nb-hover flex items-center justify-center rounded-[16px] bg-ink px-6 py-5 font-display text-sm font-bold text-ink-foreground"
         >
           Have a similar problem?{" "}
-          <span className="ml-1 text-accent-strong">Let&apos;s talk.</span>
+          <span className="ml-1 text-mustard">Let&apos;s talk.</span>
         </Link>
       </Reveal>
     </div>

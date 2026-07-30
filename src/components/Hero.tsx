@@ -6,21 +6,21 @@ import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-14 pb-8 sm:pt-20">
+    <section className="mx-auto max-w-6xl px-6 pt-10 pb-8 sm:pt-14">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-6 sm:gap-5">
         <Reveal className="sm:col-span-4">
           <BentoCard className="flex h-full flex-col justify-between bg-surface">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-border-c bg-surface-2 px-3 py-1 text-xs font-medium text-muted">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-strong" />
+              <span className="nb-sm inline-flex items-center gap-2 rounded-full bg-paper-2 px-3 py-1.5 font-display text-xs font-semibold text-ink">
+                <span className="nb-sm h-2 w-2 rounded-full bg-mustard" />
                 Open to Product &amp; Data-focused roles · {profile.location}
               </span>
-              <h1 className="font-display mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h1 className="font-display mt-6 text-4xl font-bold leading-[0.98] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
                 {profile.name}
               </h1>
-              <p className="mt-3 text-lg font-medium text-accent">
+              <span className="nb-sm mt-4 inline-block rounded-md bg-mustard-soft px-3 py-1 font-display text-base font-bold text-ink">
                 {profile.title}
-              </p>
+              </span>
               <p className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
                 {profile.tagline}.
               </p>
@@ -28,17 +28,17 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/#projects"
-                className="inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground transition-transform hover:scale-105"
+                className="nb nb-hover inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 font-display text-sm font-bold text-ink-foreground"
               >
-                View projects
-                <ArrowUpRight size={16} className="text-accent-strong" />
+                View case studies
+                <ArrowUpRight size={16} className="text-mustard" />
               </Link>
               <a
                 href={profile.resumeFile}
                 download
-                className="inline-flex items-center gap-1.5 rounded-full border border-border-c bg-surface-2 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                className="nb nb-hover inline-flex items-center gap-1.5 rounded-full bg-surface px-5 py-2.5 font-display text-sm font-bold text-ink"
               >
-                Resume
+                Résumé
                 <Download size={16} />
               </a>
             </div>
@@ -46,40 +46,39 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.08} className="sm:col-span-2">
-          <BentoCard className="flex h-full flex-col justify-center gap-5 bg-ink text-ink-foreground">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+          <BentoCard hover={false} className="flex h-full flex-col justify-center gap-3.5 bg-mustard">
+            <p className="font-display text-xs font-bold uppercase tracking-[0.15em] text-ink">
               Snapshot
             </p>
-            <div className="flex flex-col gap-4">
-              {highlights.map((item) => (
-                <div key={item.label} className="flex items-baseline gap-3">
-                  <span className="font-display shrink-0 text-2xl font-semibold text-accent-strong">
-                    {item.value}
-                  </span>
-                  <span className="text-sm leading-snug text-ink-muted">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+            {highlights.map((item) => (
+              <div
+                key={item.label}
+                className="nb-sm flex items-baseline gap-2.5 rounded-[10px] bg-surface px-3.5 py-2.5"
+              >
+                <span className="font-display shrink-0 text-xl font-bold text-ink">
+                  {item.value}
+                </span>
+                <span className="text-xs leading-snug text-muted">
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </BentoCard>
         </Reveal>
 
         <Reveal delay={0.14} className="sm:col-span-6">
-          <BentoCard className="bg-surface-2">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted">
+          <BentoCard className="flex flex-wrap items-center gap-3 bg-paper-2">
+            <p className="font-display text-xs font-bold uppercase tracking-widest text-muted">
               Toolkit
             </p>
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-border-c bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="nb-sm rounded-full bg-surface px-4 py-2 font-display text-sm font-semibold text-ink"
+              >
+                {skill}
+              </span>
+            ))}
           </BentoCard>
         </Reveal>
       </div>

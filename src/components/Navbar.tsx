@@ -4,43 +4,47 @@ import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_LINKS = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/#about", label: "About" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#projects", label: "Projects", dot: "bg-mustard" },
+  { href: "/#about", label: "About", dot: "bg-sage" },
+  { href: "/#experience", label: "Experience", dot: "bg-lilac" },
+  { href: "/#contact", label: "Contact", dot: "bg-ink" },
 ];
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border-c/60 bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <div className="sticky top-4 z-50 mx-auto max-w-6xl px-6">
+      <nav className="nb flex items-center justify-between rounded-full bg-surface/90 px-5 py-3 backdrop-blur-md">
         <Link
           href="/"
-          className="font-display text-lg font-semibold tracking-tight text-foreground"
+          className="flex items-center gap-2.5 font-display text-base font-bold tracking-tight text-ink"
         >
-          Padma Shneha
+          <span className="nb-sm flex h-8 w-8 items-center justify-center rounded-lg bg-mustard text-xs">
+            {"</>"}
+          </span>
+          PADMA SHNEHA
         </Link>
-        <div className="hidden items-center gap-6 sm:flex sm:gap-8">
+        <div className="hidden items-center gap-1 sm:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-accent"
+              className="flex items-center gap-2 rounded-full px-3.5 py-2 font-display text-[13px] font-semibold text-ink transition-colors hover:bg-paper-2"
             >
+              <span className={`nb-sm h-1.5 w-1.5 rounded-full ${link.dot}`} />
               {link.label}
             </Link>
           ))}
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <Link
             href="/#contact"
-            className="hidden rounded-full bg-accent-strong px-4 py-2 text-sm font-semibold text-ink transition-transform hover:scale-105 sm:inline-block"
+            className="nb nb-hover hidden rounded-full bg-ink px-4 py-2 font-display text-[13px] font-bold text-ink-foreground sm:inline-block"
           >
             Let&apos;s talk
           </Link>
           <ThemeToggle />
         </div>
       </nav>
-    </header>
+    </div>
   );
 }

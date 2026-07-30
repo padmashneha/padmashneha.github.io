@@ -5,15 +5,18 @@ export function BentoCard({
   children,
   className,
   as: Tag = "div",
+  hover = true,
 }: {
   children: ReactNode;
   className?: string;
   as?: "div" | "article";
+  hover?: boolean;
 }) {
   return (
     <Tag
       className={cn(
-        "group relative overflow-hidden rounded-3xl border border-border-c bg-surface p-6 shadow-[0_1px_0_0_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:p-8",
+        "nb group relative overflow-hidden rounded-[20px] bg-surface p-6 sm:p-8",
+        hover && "nb-hover",
         className
       )}
     >

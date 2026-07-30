@@ -3,76 +3,147 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #faf8f2;
-  --surface: #ffffff;
-  --surface-2: #f2ede0;
-  --border-c: #e6ddc8;
-  --foreground: #17140f;
-  --muted: #6b6255;
+  /* canvas — the only tokens that flip with theme */
+  --paper: #f6f1e4;
+  --page-fg: #17140f;
 
-  /* mustard — tuned darker for AA contrast as small text/links on light bg */
-  --accent: #8a660c;
-  /* mustard — tuned brighter, for solid fills paired with ink text */
-  --accent-strong: #e0ac1f;
-  --ring: #a97a0f;
+  /* constant surfaces — stay light regardless of theme (poster chips on canvas) */
+  --paper-2: #efe7d4;
+  --surface: #fffdf8;
 
-  /* fixed dark "spotlight" tokens — same in both themes, used for signature panels */
-  --ink: #1b1712;
+  /* constant ink — borders, shadows, text on light surfaces */
+  --ink: #17140f;
+  --muted: #5b5648;
   --ink-foreground: #f6f1e2;
-  --ink-muted: #b6ab94;
+
+  /* constant accents */
+  --mustard: #efb01f;
+  --mustard-soft: #f8dfa0;
+  --sage: #a7c3a0;
+  --sage-soft: #dbe7d7;
+  --lilac: #e3c6ec;
+  --lilac-soft: #f2e2f6;
 }
 
 .dark {
-  --background: #0c0b09;
-  --surface: #17150f;
-  --surface-2: #1e1b14;
-  --border-c: #2c2820;
-  --foreground: #f3efe4;
-  --muted: #a8a08c;
-
-  --accent: #e8b53a;
-  --accent-strong: #f0c14b;
-  --ring: #e8b53a;
+  --paper: #15130d;
+  --page-fg: #f3ede0;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-page-fg: var(--page-fg);
   --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-border-c: var(--border-c);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
-  --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
-  --color-ink-muted: var(--ink-muted);
+  --color-muted: var(--muted);
+  --color-mustard: var(--mustard);
+  --color-mustard-soft: var(--mustard-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-lilac: var(--lilac);
+  --color-lilac-soft: var(--lilac-soft);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-jetbrains-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--page-fg);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  background-image: radial-gradient(
-    var(--border-c) 1px,
-    transparent 1px
-  );
-  background-size: 28px 28px;
-  background-attachment: fixed;
 }
 
 ::selection {
-  background: var(--accent-strong);
+  background: var(--mustard);
   color: var(--ink);
-}
-
-* {
-  border-color: var(--border-c);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ---- neubrutalist primitives ---- */
+.nb {
+  border-width: 2.5px;
+  border-color: var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.nb-sm {
+  border-width: 1.5px;
+  border-color: var(--ink);
+}
+.nb-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.nb-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
+}
+
+/* ---- decorative background: blurred blobs + faint grain, fixed behind all content ---- */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--paper);
+  pointer-events: none;
+}
+.bg-decor .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+.bg-decor .blob-1 {
+  width: 480px;
+  height: 480px;
+  top: -160px;
+  right: -140px;
+  background: var(--mustard);
+  opacity: 0.4;
+}
+.bg-decor .blob-2 {
+  width: 520px;
+  height: 520px;
+  bottom: -200px;
+  left: -180px;
+  background: var(--sage);
+  opacity: 0.35;
+}
+.bg-decor .blob-3 {
+  width: 380px;
+  height: 380px;
+  top: 38%;
+  left: -190px;
+  background: var(--lilac);
+  opacity: 0.35;
+}
+.bg-decor .blob-4 {
+  width: 360px;
+  height: 360px;
+  bottom: 6%;
+  right: -140px;
+  background: var(--mustard);
+  opacity: 0.25;
+}
+.bg-decor .grain {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--ink) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.05;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .nb-hover {
+    transition: none;
+  }
+  .nb-hover:hover {
+    transform: none;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
 }

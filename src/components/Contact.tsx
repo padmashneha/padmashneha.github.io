@@ -2,7 +2,7 @@ import { ArrowUpRight, Download, Link as LinkIcon, Mail, Newspaper } from "lucid
 import { profile } from "@/content/data";
 import { BentoCard } from "./BentoCard";
 import { Reveal } from "./Reveal";
-import { SectionEyebrow } from "./SectionEyebrow";
+import { SectionHead } from "./SectionHead";
 
 const LINKS = [
   {
@@ -28,15 +28,15 @@ const LINKS = [
 export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
-      <SectionEyebrow index="04" label="Contact" />
+      <SectionHead title="Contact" />
 
       <Reveal delay={0.05}>
-        <BentoCard className="bg-ink text-ink-foreground">
-          <h2 className="font-display max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
+        <BentoCard hover={false} className="bg-ink text-ink-foreground">
+          <h2 className="font-display max-w-xl text-2xl font-bold leading-tight sm:text-3xl">
             Let&apos;s turn your data into a{" "}
-            <span className="text-accent-strong">decision.</span>
+            <span className="text-mustard">decision.</span>
           </h2>
-          <p className="mt-3 max-w-lg text-ink-muted">
+          <p className="mt-3 max-w-lg text-sm text-ink-foreground/70 sm:text-base">
             Open to product and data-focused roles, collaborations, and
             conversations about analytics, GenAI, and applied ML.
           </p>
@@ -54,17 +54,19 @@ export function Contact() {
             >
               <BentoCard className="flex h-full flex-col justify-between bg-surface">
                 <div className="flex items-center justify-between">
-                  <link.icon size={20} className="text-accent" />
+                  <span className="nb-sm flex h-8 w-8 items-center justify-center rounded-md bg-mustard-soft">
+                    <link.icon size={15} className="text-ink" />
+                  </span>
                   <ArrowUpRight
                     size={16}
-                    className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+                    className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink"
                   />
                 </div>
                 <div className="mt-6">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+                  <p className="font-display text-xs font-bold uppercase tracking-widest text-muted">
                     {link.label}
                   </p>
-                  <p className="mt-1 truncate text-sm font-medium text-foreground">
+                  <p className="mt-1 truncate text-sm font-semibold text-ink">
                     {link.value}
                   </p>
                 </div>
@@ -78,9 +80,9 @@ export function Contact() {
         <a
           href={profile.resumeFile}
           download
-          className="flex items-center justify-center gap-2 rounded-3xl border border-dashed border-border-c bg-surface-2 px-6 py-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+          className="nb-sm flex items-center justify-center gap-2 rounded-[16px] border-dashed bg-paper-2 px-6 py-5 font-display text-sm font-bold text-ink transition-colors hover:bg-mustard-soft"
         >
-          Download full resume (PDF)
+          Download full résumé (PDF)
           <Download size={16} />
         </a>
       </Reveal>

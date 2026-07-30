@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { CertificationsAwards } from "@/components/CertificationsAwards";
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Hero } from "@/components/Hero";
@@ -11,6 +12,7 @@ export default function Home() {
       <ProjectsGrid />
       <About />
       <Experience />
+      <CertificationsAwards />
       <Contact />
     </>
   );
