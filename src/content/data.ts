@@ -6,7 +6,7 @@ export const profile = {
   title: "Data Analyst",
   tagline: "Turning numbers to answers to grow your business",
   email: "padmashneha7@gmail.com",
-  // location: "Chennai, India",
+  location: "India",
   links: {
     linkedin: "http://linkedin.com/in/padmashneha",
     medium:
